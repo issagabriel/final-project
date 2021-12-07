@@ -7,6 +7,9 @@ const commentSchema = new Schema({
         type: Date,
         default: Date.now,
     },
-    commentor://link to commentors id
+    // commentor://link to commentors id
     
 })
+
+const Comment = mongoose.model("Comment", commentSchema)
+module.exports= Comment

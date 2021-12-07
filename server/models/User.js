@@ -13,6 +13,12 @@ const userSchema = new Schema({
         required: true,
         
     },
+    email: {
+        type: String,
+        required: true,
+        max: 50,
+        unique: true,
+      },
 
     favTeams: [String],
     favPlayers:[String],
