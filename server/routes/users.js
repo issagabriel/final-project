@@ -61,7 +61,7 @@ router.post("/sign-up", function (req, res, next) {
     });
 });
 
-router.delete("/delete/:id", (req, res) => {
+router.delete("/delete/:id", auth, (req, res) => {
   const { user } = req.params.id;
 
   User.findByIdAndRemove({ id: user })
@@ -81,20 +81,23 @@ router.delete("/delete/:id", (req, res) => {
 
 router.post("/login", (req, res) => {
   const { username, password } = req.body;
-
+  console.log(req.body);
   if (!username || !password) {
     res.json({ error: "Username and password are required" });
+    return;
   }
 
   User.findOne({ username: username })
     .then((foundUser) => {
       if (!foundUser) {
         res.json({ message: "Username not found" });
+        return;
       }
 
       const passMatch = bcrypt.compareSync(password, foundUser.password);
       if (!passMatch) {
         res.json({ message: "improper password" });
+        return;
       }
 
       const payload = {
@@ -110,7 +113,12 @@ router.post("/login", (req, res) => {
         (err, token) => {
           if (err) throw err;
           else {
-            res.json({ token, id: foundUser.id, success: true });
+            res.json({
+              token,
+              id: foundUser.id,
+              success: true,
+              username: foundUser.username,
+            });
           }
         }
       );
@@ -132,8 +140,20 @@ router.get("/login-test", auth, (req, res) => {
     });
 });
 
+router.get("/all-users", (req, res) => {
+  User.find(req.body)
+    .then((results) => {
+      console.log("These are the results", results);
+      res.json(results);
+    })
+    .catch((err) => {
+      console.log("Something went wrong", err);
+      res.json(err);
+    });
+});
+
 router.get("/profile/:id", (req, res) => {
-  User.findById(req.params.id)
+  User.findById(req.user.id)
     .then((user) => {
       res.json(user);
     })
@@ -142,8 +162,18 @@ router.get("/profile/:id", (req, res) => {
     });
 });
 
-router.put("/profile/:id", (req, res) => {
-  User.findByIdAndUpdate(req.params.id, { ...req.body })
+router.get("/my-profile/:id", auth, (req, res) => {
+  User.findById(req.user.id)
+    .then((user) => {
+      res.json(user);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
+router.put("/profile/:id", auth, (req, res) => {
+  User.findByIdAndUpdate(req.user.id, { ...req.body })
     .then((user) => {
       res.json(user);
     })

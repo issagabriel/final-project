@@ -47,7 +47,7 @@ router.get("/comment/:id", (req, res) => {
     });
 });
 
-router.delete("/delete-comment/:id", (req, res) => {
+router.delete("/delete-comment/:id", auth, (req, res) => {
   Comment.findByIdAndRemove(req.params.id)
     .exec()
     .then((deletedComment) => {
