@@ -26,6 +26,11 @@ function App() {
           path="/sign-up"
           component={(props) => <SignUp {...props} />}
         />
+        <Route
+          exact
+          path="/my-profile/:id"
+          component={(props) => <UserProfile {...props} />}
+        />
       </Switch>
       <Footer />
     </div>

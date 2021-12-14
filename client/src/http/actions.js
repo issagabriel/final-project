@@ -33,3 +33,11 @@ export const put = (route, body) => {
     },
   });
 };
+export const deleteComp = (route) => {
+  return axios.delete(`${url}${route}`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token,
+    },
+  });
+};

@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { get } from "../http/actions";
 
-const AllUsers = () => {
+const AllUsers = (props) => {
   const [usersArr, setUsersArr] = React.useState([]);
 
   React.useEffect(() => {

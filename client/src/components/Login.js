@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { get, post } from "../http/actions";
 
 const Login = () => {
-  const [username, setUsername] = useState("gabe");
-  const [password, setPassword] = useState("password2");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const login = () => {
     post("/users/login", {
