@@ -6,11 +6,11 @@ const UserCard = (props) => {
       <h2>{props.attributes.username}</h2>
 
       {props.attributes.favTeams &&
-        props.attributes.favTeams.map((team) => {
+        props.attributes.favTeams?.map((team) => {
           return <p>{team}</p>;
         })}
       {props.attributes.favPlayers &&
-        props.attributes.favPlayers.map((player) => {
+        props.attributes.favPlayers?.map((player) => {
           return <p>{player}</p>;
         })}
     </div>

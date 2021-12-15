@@ -13,6 +13,7 @@ const Login = () => {
       .then((results) => {
         console.log("RESULTS", results.data);
         if (results.data.success) {
+          localStorage.clear();
           localStorage.setItem("token", results.data.token);
         }
       })
@@ -21,7 +22,7 @@ const Login = () => {
       });
   };
   return (
-    <div>
+    <div className="Login">
       <label>Username</label>
       <input
         value={username}

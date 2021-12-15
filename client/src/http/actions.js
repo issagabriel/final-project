@@ -1,12 +1,11 @@
 import axios from "axios";
 import { url } from "./url";
 
-const token = localStorage.getItem("token");
-
 // Standard axios Get
 //GET request
 
 export const get = (route) => {
+  const token = localStorage.getItem("token");
   return axios.get(`${url}${route}`, {
     headers: {
       "Content-Type": "application/json",
@@ -15,6 +14,7 @@ export const get = (route) => {
   });
 };
 export const post = (route, body) => {
+  const token = localStorage.getItem("token");
   console.log(body);
   return axios.post(`${url}${route}`, body, {
     headers: {
@@ -25,6 +25,7 @@ export const post = (route, body) => {
 };
 
 export const put = (route, body) => {
+  const token = localStorage.getItem("token");
   console.log(body);
   return axios.put(`${url}${route}`, body, {
     headers: {
@@ -34,6 +35,7 @@ export const put = (route, body) => {
   });
 };
 export const deleteComp = (route) => {
+  const token = localStorage.getItem("token");
   return axios.delete(`${url}${route}`, {
     headers: {
       "Content-Type": "application/json",

@@ -23,7 +23,7 @@ const SignUp = () => {
       });
   };
   return (
-    <div>
+    <div className="SignUp">
       <label>Username</label>
       <input
         value={username}

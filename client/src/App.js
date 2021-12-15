@@ -8,10 +8,12 @@ import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import SignUp from "./components/SignUp";
+import ViewProfile from "./components/ViewProfile";
+import About from "./components/About";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <Header />
       <Navbar />
       <Switch>
@@ -28,8 +30,18 @@ function App() {
         />
         <Route
           exact
-          path="/my-profile/:id"
+          path="/my-profile"
           component={(props) => <UserProfile {...props} />}
+        />
+        <Route
+          exact
+          path="/profile/:id"
+          component={(props) => <ViewProfile {...props} />}
+        />
+        <Route
+          exact
+          path="/about"
+          component={(props) => <About {...props} />}
         />
       </Switch>
       <Footer />
