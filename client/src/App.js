@@ -10,6 +10,7 @@ import Home from "./components/Home";
 import SignUp from "./components/SignUp";
 import ViewProfile from "./components/ViewProfile";
 import About from "./components/About";
+import Scores from "./components/Scores";
 
 function App() {
   return (
@@ -42,6 +43,11 @@ function App() {
           exact
           path="/about"
           component={(props) => <About {...props} />}
+        />
+        <Route
+          exact
+          path="/headlines"
+          component={(props) => <Scores {...props} />}
         />
       </Switch>
       <Footer />

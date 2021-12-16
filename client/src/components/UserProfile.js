@@ -30,8 +30,7 @@ const UserProfile = (props) => {
     })
       .then((results) => {
         console.log(results.data);
-        localStorage.setItem(results.data.favPlayers);
-        localStorage.setItem(results.data.favTeams);
+        setUser(results.data);
       })
       .catch((err) => {
         console.log("Something went wrong", err.message);
@@ -53,8 +52,7 @@ const UserProfile = (props) => {
   };
 
   return (
-    <div>
-      <h1>User Profile</h1>
+    <div className="Profile">
       <UserCard attributes={user} />
       <label>List Your Favorite Players Here</label>
       <input
@@ -66,8 +64,8 @@ const UserProfile = (props) => {
         value={favTeams}
         onChange={(e) => setFavTeams(e.target.value)}
       ></input>
-      <button onClick={updateUser}>Edit Profile</button>
-      <button onClick={deleteUser}>Delete Profile</button>
+      <button onClick={updateUser}>Edit</button>
+      <button onClick={deleteUser}>Delete</button>
     </div>
   );
 };

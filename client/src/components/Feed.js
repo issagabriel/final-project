@@ -1,9 +1,10 @@
 import React from "react";
-
+import AllUsers from "./AllUsers";
+import ViewProfile from "./ViewProfile";
 const Feed = () => {
   return (
-    <div>
-      <h1>Feed</h1>
+    <div className="Feed">
+      <AllUsers />
     </div>
   );
 };

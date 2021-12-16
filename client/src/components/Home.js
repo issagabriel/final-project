@@ -4,7 +4,7 @@ import Feed from "./Feed";
 
 const Home = () => {
   return (
-    <div>
+    <div className="Home">
       <Feed />
     </div>
   );

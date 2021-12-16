@@ -5,16 +5,27 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 17px;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  box-sizing: border-box;
 }
 
 body {
-  min-height: 100vh;
+  /* min-height: 100vh;
   font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: flex;
-  background-color: #efefef;
+  background-color: #efefef; */
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 1.5;
+  line-height: 1.5;
+  color: #292b2c;
+  background-color: #fff;
 }
 
 #root {
@@ -37,6 +48,14 @@ body {
 }
 
 .About {
+  width: 100%;
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: #fff;
+}
+
+.Home {
   width: 100%;
   flex-grow: 1;
   padding: 1rem;
@@ -161,4 +180,70 @@ body {
 
 .SignUp label {
   margin-top: 1rem;
+}
+
+.UserFeed {
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.Comment {
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.api {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 50px;
+  padding: 1.5rem;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  background-color: midnightblue;
+  color: silver;
+  font-size: smaller;
+}
+
+.Profile {
+  padding: 30px 25px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  text-align: center;
+  width: 100%;
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: #fff;
+}
+
+.Profile label {
+  margin: 15px;
+
+  color: #353c4e;
+  text-transform: uppercase;
+  justify-content: space-evenly;
+  display: flex;
+}
+
+.ProfileDetails,
+.Profile h2 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.Profile button {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(to right, red, midnightblue);
+  margin: 10px;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  line-height: 45px;
+  display: flex;
+  justify-content: center;
 }
