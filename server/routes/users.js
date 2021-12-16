@@ -61,16 +61,15 @@ router.post("/sign-up", function (req, res, next) {
     });
 });
 
-router.delete("/delete/:id", auth, (req, res) => {
-  const { user } = req.params.id;
-
-  User.findByIdAndRemove({ id: user })
+router.delete("/delete", auth, (req, res) => {
+  console.log("DELETED USER !!!!!", req.user);
+  User.findByIdAndRemove(req.user.id)
     .exec()
     .then((deletedUser) => {
       if (!deletedUser) {
         res.status(404);
       } else {
-        res.status(204);
+        res.status(204).json({ deleted: true });
       }
     })
     .catch((err) => {
@@ -153,6 +152,17 @@ router.get("/all-users", (req, res) => {
 });
 
 router.get("/profile/:id", (req, res) => {
+  User.findById(req.params.id)
+    .then((user) => {
+      res.json(user);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
+router.get("/my-profile", auth, (req, res) => {
+  console.log("REQQQQ!!!!!", req.user.id);
   User.findById(req.user.id)
     .then((user) => {
       res.json(user);
@@ -162,8 +172,10 @@ router.get("/profile/:id", (req, res) => {
     });
 });
 
-router.get("/my-profile/:id", auth, (req, res) => {
-  User.findById(req.user.id)
+router.put("/profile", auth, (req, res) => {
+  User.findByIdAndUpdate(req.user.id, {
+    $push: { favTeams: req.body.favTeams, favPlayers: req.body.favPlayers },
+  })
     .then((user) => {
       res.json(user);
     })
@@ -171,15 +183,4 @@ router.get("/my-profile/:id", auth, (req, res) => {
       res.json(err);
     });
 });
-
-router.put("/profile/:id", auth, (req, res) => {
-  User.findByIdAndUpdate(req.user.id, { ...req.body })
-    .then((user) => {
-      res.json(user);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
-});
-
 module.exports = router;
