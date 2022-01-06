@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 
 const Scores = () => {
-  const [headline, setHeadline] = React.useState("...loading");
+  const [headline, setHeadline] = React.useState([]);
 
   React.useEffect(() => {
     axios

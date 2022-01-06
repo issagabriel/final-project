@@ -18,14 +18,13 @@ const AllUsers = (props) => {
   }, []);
   return (
     <div>
-      <h1>All The Users</h1>
       {usersArr.map((users) => {
         console.log(users);
         return (
           <div className="UserFeed">
-            <h3>{users.username}</h3>
-            <h4>{users.favTeams}</h4>
-            <h4>{users.favPlayers}</h4>
+            <h3>{users.username} </h3>
+            <p>{users.favTeams + "  "} </p>
+            <p>{users.favPlayers + " "} </p>
             <Comment id={users._id} />
           </div>
         );

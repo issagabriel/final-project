@@ -21,10 +21,10 @@ const Comment = (props) => {
 
   return (
     <div className="Comment">
-      <label>Comment</label>
       <input
         value={comment}
         onChange={(e) => setComment(e.target.value)}
+        placeholder="Anything in Common?"
       ></input>
 
       <button onClick={postComment}>Add Comment</button>

@@ -154,6 +154,21 @@ body {
   place-content: center;
 }
 
+.Login,
+.SignUp {
+  margin: 0px auto;
+  padding: 20px;
+  width: 100%;
+  max-width: 448px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px,
+    rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .Login button {
   margin-top: 1rem;
   height: 48px;
@@ -164,8 +179,36 @@ body {
   cursor: pointer;
 }
 
-.Login label {
+.Login,
+.SignUp label {
   margin-top: 1rem;
+  margin: 0px auto;
+  width: 100%;
+  max-width: 448px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px,
+    rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.SignUp,
+.Login {
+  font-size: 16px;
+  line-height: 28px;
+  padding: 8px 16px;
+  width: 100%;
+  min-height: 44px;
+  border: unset;
+  border-radius: 4px;
+  outline-color: rgb(84 105 212 / 0.5);
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+    rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.16) 0px 0px 0px 1px,
+    rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+    rgba(0, 0, 0, 0) 0px 0px 0px 0px;
 }
 
 .SignUp button {
@@ -176,10 +219,6 @@ body {
   padding: 0.5rem;
   font-size: 1rem;
   cursor: pointer;
-}
-
-.SignUp label {
-  margin-top: 1rem;
 }
 
 .UserFeed {
@@ -235,6 +274,17 @@ body {
   flex-direction: column;
 }
 
+.Profile h1 {
+  padding-bottom: 50px;
+  border: 1px solid grey;
+  border-radius: 12px;
+  justify-content: center;
+  text-align: center;
+  font-weight: 800;
+  background-color: darkred;
+  color: #fff;
+}
+
 .Profile button {
   width: 45px;
   height: 45px;
@@ -246,4 +296,60 @@ body {
   line-height: 45px;
   display: flex;
   justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+
+.UserFeed {
+  padding: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  border: 2px solid grey;
+  border-radius: 18px;
+  background-color: darkred;
+  color: white;
+}
+
+.Comment {
+  padding: 10px;
+
+  display: flex;
+}
+
+.Comment button {
+  display: flex;
+  padding: 5px;
+  border-radius: 12px;
+  flex-direction: column;
+  justify-content: baseline;
+}
+
+.Comment input {
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid white;
+  background: transparent;
+  padding-bottom: 5px;
+}
+
+.Comment p {
+  display: flex;
+  padding: 5px;
+}
+
+.api {
+  padding: 10vh;
+  justify-content: space-between;
+}
+
+.api td {
+  display: ruby-base-container;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.api th {
+  display: ruby-base-container;
+  justify-content: space-evenly;
+  flex-direction: row;
 }
